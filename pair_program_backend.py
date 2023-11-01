@@ -266,5 +266,4 @@ with st.sidebar.chat_message("user"):
     a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋",)
 
 st.write(f'You wrote {len(output)} characters.')
-
-! streamlit run /usr/local/lib/python3.10/dist-packages/colab_kernel_launcher.py
+#! streamlit run /usr/local/lib/python3.10/dist-packages/colab_kernel_launcher.py
