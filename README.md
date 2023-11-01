@@ -1,1 +1,0 @@
-# RadicalX_Challenge2
