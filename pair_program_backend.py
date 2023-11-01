@@ -257,21 +257,19 @@ import streamlit as st
 # demo.launch()
 
 #Generate APIs as fxns
-
-"""**STREAMLIT**"""
 col1, col2 = st.columns(2)
 
 with col1:
-    with st.echo():
-        st.write('Coding Area'),
-        coding_area=st.text_area('Workbench')
-        st.code('for i in range(8): foo()')
+    st.write('Coding Area'),
+    coding_area=st.text_area('Workbench')
+    st.code('for i in range(8): foo()')
 
 
 with col2:
     st.write("Results"),
     output=st.text_input("Output"),
-    solution=st.text_input("Solution")
+    n=st.sidebar.header("Solution:"),
+    st.code('for i in range(8): foo()')
     
 # Just add it after st.sidebar:
 with st.echo():
