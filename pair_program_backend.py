@@ -259,10 +259,18 @@ import streamlit as st
 #Generate APIs as fxns
 
 """**STREAMLIT**"""
+col1, col2 = st.columns(2)
 
-coding_area=st.text_area("Coding Area")
-output=st.text_area("Output")
-solution=st.text_area("Solution")
+with col1:
+    st.write('This is column 1'),
+    coding_area=st.text_area("Coding Area")
+
+
+with col2:
+    st.write('This is column 1'),
+    output=st.text_input("Output"),
+    solution=st.text_area("Solution")
+    
 # Just add it after st.sidebar:
 q=st.sidebar.text_area("Question"),
 a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
