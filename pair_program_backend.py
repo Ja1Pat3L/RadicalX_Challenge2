@@ -270,7 +270,8 @@ with col2:
 
 # Just add it after st.sidebar:
 q=st.sidebar.header('Question'),
-st.sidebar.code('for i in range(8): foo()')
+with st.echo():
+    st.sidebar.code('for i in range(8): foo()')
 a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
 
 b=st.button("Compile")
