@@ -262,8 +262,6 @@ col1, col2 = st.columns(2)
 with col1:
     s=st.header('Coding Area'),
     coding_area=st.text_area('Workbench')
-    r=st.code('for i in range(8): foo()')
-
 
 with col2:
     l=st.header('Results'),
@@ -274,7 +272,7 @@ with col2:
 # Just add it after st.sidebar:
 q=st.sidebar.header('Question'),
 with st.echo():
-    st.code('for i in range(8): foo()')
+    st.sidebar.code('for i in range(8): foo()')
 a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
 
 b=st.button("Compile")
