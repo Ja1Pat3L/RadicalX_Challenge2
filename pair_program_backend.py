@@ -266,12 +266,14 @@ with col1:
 with col2:
     l=st.header('Results'),
     output=st.text_input('Output'),
-    n=st.header("Solution:")
+    n=st.header("Solution:"),
+    st.code('for i in range(8): foo()')
+    
 # Just add it after st.sidebar:
 q=st.sidebar.header('Question'),
 with st.echo():
-    st.sidebar.code('for i in range(8): foo()'),
-    a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
+    st.sidebar.code('for i in range(8): foo()')
+a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
 
 b=st.button("Compile")
 # from code_editor import code_editor
