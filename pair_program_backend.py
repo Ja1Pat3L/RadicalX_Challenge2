@@ -260,7 +260,7 @@ import streamlit as st
 col1, col2 = st.columns(2)
 
 with col1:
-    st.write('Coding Area'),
+    st.header('Coding Area'),
     coding_area=st.text_area('Workbench')
     st.code('for i in range(8): foo()')
 
@@ -272,8 +272,8 @@ with col2:
     st.code('for i in range(8): foo()')
     
 # Just add it after st.sidebar:
+q=st.sidebar.header("Question"),
 with st.echo():
-    q=st.sidebar.header("Question"),
     st.code('for i in range(8): foo()')
 a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
 
