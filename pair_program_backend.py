@@ -262,12 +262,13 @@ import streamlit as st
 col1, col2 = st.columns(2)
 
 with col1:
-    st.write('Coding Area'),
-    coding_area=st.text_area('Workbench')
+    with st.echo():
+        st.write('Coding Area'),
+        coding_area=st.text_area('Workbench')
+        st.code('for i in range(8): foo()')
 
 
 with col2:
-    col2.color_picker('White')
     st.write("Results"),
     output=st.text_input("Output"),
     solution=st.text_input("Solution")
