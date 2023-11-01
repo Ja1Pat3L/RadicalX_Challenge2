@@ -265,9 +265,10 @@ output=st.text_area("Output")
 solution=st.text_area("Solution")
 # Just add it after st.sidebar:
 with st.sidebar.chat_message("user"):
+    q=st.sidebar.text_area("Question")
     a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
   
-q=st.sidebar.text_area("Question")
+
 # from code_editor import code_editor
 # response_dict = code_editor("")
 
