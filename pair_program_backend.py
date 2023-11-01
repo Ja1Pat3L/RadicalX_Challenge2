@@ -24,6 +24,7 @@
 # import gradio as gr
 import streamlit as st
 
+
 # import vertexai
 # import openai
 # import json
@@ -268,6 +269,10 @@ solution=st.text_area("Solution")
 
 with st.sidebar.chat_message("user"):
     a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋",)
+
+from code_editor import code_editor
+
+response_dict = code_editor("")
 
 st.write(f'You wrote {len(output)} characters.')
 #! streamlit run /usr/local/lib/python3.10/dist-packages/colab_kernel_launcher.py
