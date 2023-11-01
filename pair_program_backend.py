@@ -268,7 +268,7 @@ with col1:
 with col2:
     st.write("Results"),
     output=st.text_input("Output"),
-    n=st.sidebar.header("Solution:"),
+    n=st.header("Solution:"),
     st.code('for i in range(8): foo()')
     
 # Just add it after st.sidebar:
