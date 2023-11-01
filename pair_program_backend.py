@@ -274,7 +274,9 @@ with col2:
     solution=st.text_input("Solution")
     
 # Just add it after st.sidebar:
-q=st.sidebar.text_area("Question"),
+with st.echo():
+    q=st.sidebar.header("Question"),
+    st.code('for i in range(8): foo()')
 a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
 
 b=st.button("Compile")
