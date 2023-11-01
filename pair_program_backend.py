@@ -265,10 +265,10 @@ output=st.text_area("Output")
 solution=st.text_area("Solution")
 # Just add it after st.sidebar:
 q=st.sidebar.text_area("Question"),
-a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
+a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋"),
 i=st.sidebar.chat_input("Say something")
 col1, col2 = st.columns(2)
-col1.write('Column 1')
+col1.write('Column 1'),
 col2.write('Column 2')  
 # from code_editor import code_editor
 # response_dict = code_editor("")
