@@ -8,11 +8,12 @@ Original file is located at
 """
 
 # Commented out IPython magic to ensure Python compatibility.
-%pip install "shapely<2.0.0" --quiet %pip install langchain --quiet
-%pip install google-cloud-aiplatform --upgrade --quiet
-%pip install gradio --quiet
-%pip install openai --quiet
-%pip install streamlit --quiet
+pip install "shapely<2.0.0" --quiet
+pip install langchain --quiet
+pip install google-cloud-aiplatform --upgrade --quiet
+pip install gradio --quiet
+pip install openai --quiet
+pip install streamlit --quiet
 
 from langchain.prompts import PromptTemplate, ChatPromptTemplate, MessagesPlaceholder
 from langchain.chat_models.vertexai import ChatVertexAI
