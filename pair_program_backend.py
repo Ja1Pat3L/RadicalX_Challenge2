@@ -267,6 +267,7 @@ with col1:
 
 
 with col2:
+    col2.color_picker('White')
     st.write("Results"),
     output=st.text_input("Output"),
     solution=st.text_input("Solution")
