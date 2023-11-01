@@ -262,14 +262,14 @@ import streamlit as st
 col1, col2 = st.columns(2)
 
 with col1:
-    st.write('This is column 1'),
-    coding_area=st.text_area("Coding Area")
+    st.write('Coding Area'),
+    coding_area=st.text_area()
 
 
 with col2:
-    st.write('This is column 1'),
+    st.write("Results"),
     output=st.text_input("Output"),
-    solution=st.text_area("Solution")
+    solution=st.text_input("Solution")
     
 # Just add it after st.sidebar:
 q=st.sidebar.text_area("Question"),
