@@ -21,7 +21,6 @@
 # from langchain.schema.runnable import RunnableLambda
 # from langchain.memory import ConversationBufferMemory
 # import gradio as gr
-import streamlit as st
 
 # import vertexai
 # import openai
@@ -255,12 +254,15 @@ import streamlit as st
 #   code_submit.click(run_code, [code], [code_output])
 
 # demo.launch()
+from streamlit_ace import st_ace
+import streamlit as st
 
 #Generate APIs as fxns
 col1, col2 = st.columns(2)
 
 with col1:
-    s=st.header('Coding Area'),
+    s=st_ace()
+    s
     coding_area=st.text_area('Workbench')
 
 with col2:
