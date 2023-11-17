@@ -271,7 +271,7 @@
 
 # demo.launch()
 import streamlit as st
-
+from streamlit_ace import st_ace
 #Generate APIs as fxns
 
 col1, col2 = st.columns(2)
@@ -279,6 +279,7 @@ col1, col2 = st.columns(2)
 def main():
     
     with col1:
+        s=st_ace
         coding_area=st.text_area('Workbench')
 
     with col2:
