@@ -15,16 +15,16 @@
 # pip install streamlit --quiet
 # pip install streamlit_code_editor --quiet
 
-# from langchain.prompts import PromptTemplate, ChatPromptTemplate, MessagesPlaceholder
-# from langchain.chat_models.vertexai import ChatVertexAI
-# from langchain.schema.output_parser import StrOutputParser
-# from langchain.schema.runnable import RunnableLambda
-# from langchain.memory import ConversationBufferMemory
-# import gradio as gr
+from langchain.prompts import PromptTemplate, ChatPromptTemplate, MessagesPlaceholder
+from langchain.chat_models.vertexai import ChatVertexAI
+from langchain.schema.output_parser import StrOutputParser
+from langchain.schema.runnable import RunnableLambda
+from langchain.memory import ConversationBufferMemory
+import gradio as gr
 
-# import vertexai
-# import openai
-# import json
+import vertexai
+import openai
+import json
 
 # from google.colab import auth as google_auth
 # google_auth.authenticate_user()
@@ -153,35 +153,51 @@
 #     'response': lambda x: x['response'],
 # } | RunnableLambda(output_route)
 
-# #API Key
-# OPENAI_API_KEY="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"
-# openai.api_key=OPENAI_API_KEY
+#API Key
+OPENAI_API_KEY="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"
+openai.api_key=OPENAI_API_KEY
 
-# def get_coding_problem():
-#   #Prompt Template
-#   prompt_template = f"""
-#   Please generate a coding question with one test input.
-#   Format your response as a JSON object with the following 2 keys:
+def get_coding_problem():
+  #Prompt Template
+  prompt_template = f"""
+  Please generate a coding question with one test input.
+  Format your response as a JSON object with the following 2 keys:
 
-#   "Description": A text description of the coding question
-#   "Input": This should contain a dictionary where the key-value pairs are test input variable names and their values
+  "Description": A text description of the coding question
+  "Input": This should contain a dictionary where the key-value pairs are test input variable names and their values
 
-#   Do not include any additional information like examples, outputs, hints.
-#   """
+  Do not include any additional information like examples, outputs, hints.
+  """
 
-#   #Response
-#   response = openai.Completion.create(
-#       engine="text-davinci-003",
-#       prompt=prompt_template,
-#       max_tokens=1024,
-#       n=1,
-#       stop=None,
-#       temperature=1,
-#   )
+  #Response
+  response = openai.Completion.create(
+      engine="text-davinci-003",
+      prompt=prompt_template,
+      max_tokens=1024,
+      n=1,
+      stop=None,
+      temperature=1,
+  )
+  response = json.loads(get_coding_problem())
+  prob_description = response['Description']
+  prob_inputs = ''
+  for var_name, var_val in response['Input'].items():
+    prob_inputs += f'''{var_name} = {var_val}\n'''
+    global coding_problem
+    coding_problem = f'''
+    Description:
+    {prob_description}
 
-#   return response["choices"][0]["text"]
+    Inputs:
+    {prob_inputs}
+    '''
 
-# # lookup = json.loads(get_coding_problem())
+    print(coding_problem)
+
+    return response["choices"][0]["text"]
+
+
+# # lookup = json.loads(get_coding_problem())s
 
 # # prob_description = lookup['Description']
 # # prob_inputs = ''
@@ -254,23 +270,22 @@
 #   code_submit.click(run_code, [code], [code_output])
 
 # demo.launch()
-from streamlit_ace import st_ace
 import streamlit as st
 
 #Generate APIs as fxns
+
 col1, col2 = st.columns(2)
 
-with col1:
-    s=st_ace()
-    s
-    coding_area=st.text_area('Workbench')
-
-with col2:
-    l=st.header('Results'),
-    output=st.text_input('Output'),
-    solution=st.text_input('Solution'),
+def main():
     
+    with col1:
+        coding_area=st.text_area('Workbench')
 
+    with col2:
+        l=st.header('Results'),
+        output=st.text_input('Output'),
+        solution=st.text_input('Solution'),
+    
 # Just add it after st.sidebar:
 q=st.sidebar.header('Question')
 
@@ -278,9 +293,18 @@ a=st.sidebar.code('for i in range(8): foo()')
 
 a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋")
 
-b=st.button("Compile")
 # from code_editor import code_editor
 # response_dict = code_editor("")
 
-st.write(f'You wrote {len(output)} characters.')
+st.title("Simple Chatbot with GPT-3")
+st.sidebar.markdown("""
+        ## Chat with the Chatbot
+        """)
+user_input = st.sidebar.text_input("You", value="", key=1)
 
+if st.sidebar.button("Send"):
+    if user_input:
+            st.sidebar.text_area("Chatbot", value=get_coding_problem())
+
+if __name__ == "__main__":
+    main()
