@@ -296,7 +296,7 @@ a=st.sidebar.text_area("Hello, I am your Coding Companion. How Can I help!!👋"
 # from code_editor import code_editor
 # response_dict = code_editor("")
 
-st.title("Simple Chatbot with GPT-3")
+st.title("Simple Chatbot for Qudsia with GPT-3")
 st.markdown("""
         ## Chat with the Chatbot
         """)
